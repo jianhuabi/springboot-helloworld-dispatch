@@ -205,6 +205,14 @@ task "deploy": {
   inputs: ["docker-image", "gitops-git"]
   steps: [
     {
+          name: "debug"
+          image: "alpine:latest"
+          workingDir: "/workspace/gitops-git"
+          command: [
+            "ash", "-c", "cat $HOME/.git-credentials"
+          ]
+    }, 
+    {
       name: "update-gitops-repo"
       image: "mesosphere/update-gitops-repo:v1.0"
       workingDir: "/workspace/gitops-git"
