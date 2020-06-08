@@ -14,7 +14,7 @@ public class GreetingController {
 
     @GetMapping("/")
     public String index(@RequestParam(value="name", required=false) String name, Model model) {
-        System.out.println("Hello, Inside Greeting Controller with name testing: "+name);
+        System.out.println("Hello, Inside Greeting Controller with name testing2: "+name);
         model.addAttribute("name", name == null ? defaultName : name);
         return "index";
     }
